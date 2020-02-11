@@ -2,7 +2,8 @@ class io_psigwwar (
   $servers                = undef,
   $target_connectors      = undef,
   $pia_domain_list        = undef,
-  appsrv_pubsub_list      = undef,
+  $igw_prop_list          = undef,
+  $appsrv_pubsub_list     = undef,
 
   $ib_node_proxy_userid   = hiera(''),
   $ib_node_proxy_password = hiera(''),
@@ -35,7 +36,7 @@ class io_psigwwar (
     contain io_psigwwar::common_igw
   }
 
-  if ($pia_domain_list != undef) {
+  if ($igw_prop_list != undef) {
     contain io_psigwwar::igw_prop
   }
 

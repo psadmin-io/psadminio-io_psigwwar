@@ -11,7 +11,7 @@
 #   include io_psigwwar::igw_prop
 class io_psigwwar::igw_prop (
   $pia_domain_list = $io_psigwwar::pia_domain_list,
-  $igw_prop        = $io_psigwwar::igw_prop,
+  $igw_prop        = $io_psigwwar::igw_prop_list,
 ){
 
   $pia_domain_list.each |$domain_name, $pia_domain_info| {
