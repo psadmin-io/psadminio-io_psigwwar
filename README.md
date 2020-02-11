@@ -43,7 +43,26 @@ The very basic steps needed for a user to get the module up and running. This ca
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the fancy stuff with your module here. It's especially helpful if you include usage examples and code samples for doing things with your module.
+### Integration Broker Properties
+
+```
+# IB Gateway Configuration
+igw_prop_list:
+  "%{hiera('db_name')}:
+    '':
+      ig.isc.serverURL: ' '
+      ig.isc.userid:    ' '
+      ig.isc.password:  ' '
+      ig.isc.toolsRel:  ' '
+      "ig.isc.%{hiera('db_name')}.serverURL":  "%{hiera('ib_servers')}"
+      "ig.isc.%{hiera('db_name')}.userid":     "%{hiera('ib_user')}"
+      "ig.isc.%{hiera('db_name')}.password":   "%{hiera('ib_pwd_encr')}"
+      "ig.isc.%{hiera('db_name')}.toolsRel":   "%{hiera('tools_version')}"
+      "ig.isc.%{hiera('db_name')}.DomainConnectionPwd":  "%{hiera('domain_pwd_encr')}"
+      secureFileKeystorePasswd: "%{hiera('keystore_pwd_encr')}"
+```
+
+> For the password fields, encrypt the value with pscipher first. The password fields need to have the encrypted value, not a plain text value.
 
 ## Reference
 
