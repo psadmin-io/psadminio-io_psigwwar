@@ -36,7 +36,7 @@ class io_psigwwar (
     contain io_psigwwar::common_igw
   }
 
-  if ($pia_domain_list != undef) {
+  if ($igw_prop_list != undef) {
     contain io_psigwwar::igw_prop
   }
 
