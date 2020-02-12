@@ -1,12 +1,12 @@
 class io_psigwwar (
   $servers                = undef,
   $target_connectors      = undef,
-  $pia_domain_list        = undef,
-  $igw_prop_list          = undef,
+  $pia_domain_list        = hiera_hash('pia_domain_list'),
+  $igw_prop_list          = hiera_hash('igw_prop_list'),
   $appsrv_pubsub_list     = undef,
 
-  $ib_node_proxy_userid   = hiera(''),
-  $ib_node_proxy_password = hiera(''),
+  $ib_node_proxy_userid   = '',
+  $ib_node_proxy_password = '',
 
   $ps_home_location       = hiera('ps_home_location'),
   $os_user                = hiera('domain_user'),
