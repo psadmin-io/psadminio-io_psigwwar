@@ -11,7 +11,7 @@
 #   include io_psigwwar::igw_prop
 class io_psigwwar::igw_prop (
   $pia_domain_list = $io_psigwwar::pia_domain_list,
-  $igw_prop        = $io_psigwwar::igw_prop_list,
+  $igw_prop_list   = $io_psigwwar::igw_prop_list,
 ){
 
   $pia_domain_list.each |$domain_name, $pia_domain_info| {
@@ -24,6 +24,8 @@ class io_psigwwar::igw_prop (
       'section' => '',
     }
 
-    create_ini_settings($igw_prop[$domain_name],  $defaults)
+    if ($domain_name in $igw_prop_list){
+      create_ini_settings($igw_prop_list[$domain_name], $defaults)
+    }
   }
 }
