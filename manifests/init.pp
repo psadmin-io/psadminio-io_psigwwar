@@ -5,8 +5,8 @@ class io_psigwwar (
   $igw_prop_list          = hiera_hash('igw_prop_list'),
   $appsrv_pubsub_list     = undef,
 
-  $ib_node_proxy_userid   = hiera(''),
-  $ib_node_proxy_password = hiera(''),
+  $ib_node_proxy_userid   = '',
+  $ib_node_proxy_password = '',
 
   $ps_home_location       = hiera('ps_home_location'),
   $os_user                = hiera('domain_user'),
