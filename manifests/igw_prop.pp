@@ -28,4 +28,12 @@ class io_psigwwar::igw_prop (
       create_ini_settings($igw_prop_list[$domain_name], $defaults)
     }
   }
+
+  # ini spacing issue - https://github.com/psadmin-io/psadminio-io_psigwwar/issues/3
+  # TODO - seems like a hack, will only work on Linux
+  # Replace all ` = ` with `=`
+  exec { "update-igw_prop-fix-spaces-${domain_name}":
+    command    => "sed -i 's/ = /=/' ${config}",
+    path       => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  }
 }
